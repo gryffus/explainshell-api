@@ -1,0 +1,8 @@
+FROM mongo
+
+COPY dump.gz /dump.gz
+COPY init-db.sh /init-db.sh
+
+RUN /init-db.sh
+
+CMD ["mongod", "--bind_ip_all"]

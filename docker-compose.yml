@@ -1,0 +1,44 @@
+services:
+  explainshell:
+    build:
+      context: ./explainshell
+    image: explainshell
+    command: make serve
+    # uncomment if you want to expose explainshell the web api
+    # ports:
+    # - "5000:5000"
+    depends_on:
+      - explainshell-db
+    networks:
+      - explainshell-net
+    volumes:
+      - ./explainshell:/opt/webapp
+    environment:
+      - MONGO_URI=mongodb://explainshell-db
+      - HOST_IP=0.0.0.0
+
+  explainshell-db:
+    build:
+      dockerfile: Dockerfile.init-db
+    image: explainshell-db
+    networks:
+      - explainshell-net
+
+  explainshell-api:
+    build:
+      context: .
+    image: explainshell-api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - explainshell
+    networks:
+      - explainshell-net
+    environment:
+      - EXPLAINSHELL_HOST=explainshell
+      - EXPLAINSHELL_PORT=5000
+      - FLASK_RUN_HOST=0.0.0.0
+      - FLASK_RUN_PORT=5000
+      - API_PATH=/api
+networks:
+  explainshell-net:

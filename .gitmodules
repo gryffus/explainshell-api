@@ -1,0 +1,3 @@
+[submodule "explainshell"]
+	path = explainshell
+	url = https://github.com/idank/explainshell.git
