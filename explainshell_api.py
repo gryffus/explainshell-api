@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-File: explainshell-api.py
+File: explainshell_api.py
 Author: Lukáš Krejza (gryffus@hkfree.org)
 GitHub: https://github.com/gryffus/explainshell-api
 Description: JSON API for explainshell — structured shell command explanations for dev tools and UIs.

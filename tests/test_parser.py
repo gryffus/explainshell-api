@@ -1,4 +1,4 @@
-from explainshell-api import explain_command
+from explainshell_api import explain_command
 from bs4 import BeautifulSoup
 import pytest
 import responses

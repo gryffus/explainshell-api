@@ -1,5 +1,5 @@
 import pytest
-from explainshell-api import app as flask_app
+from explainshell_api import app as flask_app
 from bs4 import BeautifulSoup
 
 @pytest.fixture
