@@ -172,3 +172,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# explainshell and database dump
+explainshell/
+dump.gz
