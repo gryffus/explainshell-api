@@ -28,7 +28,7 @@ jobs:
       - name: Build Docker image
         run: docker compose build
 
-      - name: Test Docker services
+      - name: Test API response
         run: |
           docker compose up -d
           sleep 10  # Wait for services to start
