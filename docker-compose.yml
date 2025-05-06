@@ -2,6 +2,7 @@ services:
   explainshell:
     build:
       context: ./explainshell
+      dockerfile: Dockerfile
     image: explainshell
     command: make serve
     # uncomment if you want to expose explainshell the web api
@@ -19,6 +20,7 @@ services:
 
   explainshell-db:
     build:
+      context: .
       dockerfile: Dockerfile.init-db
     image: explainshell-db
     networks:
@@ -27,6 +29,7 @@ services:
   explainshell-api:
     build:
       context: .
+      dockerfile: Dockerfile
     image: explainshell-api
     ports:
       - "5000:5000"
