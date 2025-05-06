@@ -22,10 +22,6 @@ jobs:
       - name: Build with Docker Compose
         run: docker compose build
 
-      - name: Build Docker images
-        run: |
-          docker compose build
-
       - name: Test Docker services
         run: |
           docker compose up -d
