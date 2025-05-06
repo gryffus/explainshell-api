@@ -9,10 +9,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build Docker images
         run: |
-          docker-compose build
+          docker compose build
       - name: Test Docker services
         run: |
-          docker-compose up -d
+          docker compose up -d
           sleep 10  # Wait for services to start
           curl -s "http://localhost:5000/api/explain?cmd=ls+-lh" | jq . 
       - name: Login to Docker Hub
@@ -23,4 +23,4 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
       - name: Push to Docker Hub
         run: |
-          docker-compose push
+          docker compose push
