@@ -1,0 +1,26 @@
+name: Docker Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker images
+        run: |
+          docker-compose build
+      - name: Test Docker services
+        run: |
+          docker-compose up -d
+          sleep 10  # Wait for services to start
+          curl -s "http://localhost:5000/api/explain?cmd=ls+-lh" | jq . 
+      - name: Login to Docker Hub
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+      - name: Push to Docker Hub
+        run: |
+          docker-compose push

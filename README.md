@@ -1,6 +1,8 @@
 # Explainshell API
 
 Explainshell API is a lightweight JSON API wrapper for [explainshell](https://github.com/idank/explainshell). It takes shell commands as input and returns structured metadata for each component, including matched flags, commands, and their associated help text, with exact token positions. This makes it perfect for tools and frontend applications that need on-the-fly shell command explanations without scraping HTML. Ideal for interactive tutorials, terminal UIs, and intelligent CLI assistants.
+![Tests](https://github.com/gryffus/explainshell-api/actions/workflows/python-tests.yml/badge.svg)
+![Docker Build](https://github.com/gryffus/explainshell-api/actions/workflows/docker-build.yml/badge.svg)
 
 ---
 
