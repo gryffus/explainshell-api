@@ -28,7 +28,7 @@ route_path = base_path + "/explain" if base_path else "/explain"
 
 def explain_command(cmd):
     encoded_cmd = urllib.quote_plus(cmd)
-    url = "http://{}:{}/{}?cmd={}".format(EXPLAINSHELL_HOST, EXPLAINSHELL_PORT, route_path.lstrip('/'), encoded_cmd)
+    url = "http://{}:{}/explain?cmd={}".format(EXPLAINSHELL_HOST, EXPLAINSHELL_PORT, encoded_cmd)
     response = requests.get(url)
     response.raise_for_status()
     soup = BeautifulSoup(response.text, 'html.parser')

@@ -31,7 +31,6 @@ def mock_explainshell_response():
         </body>
     </html>
     """
-
     responses.add(
         responses.GET,
         "http://explainshell:5000/explain?cmd=ls+-lh+--all",
@@ -42,16 +41,16 @@ def mock_explainshell_response():
 expected_output = {
     "getargs": "ls -lh --all",
     "helptext": [
-        ["list directory contents", "help-0"],
-        ["<b>-l</b>     use a long listing format", "help-1"],
-        ["<b>-h</b>, <b>--human-readable</b>\n       with <b>-l</b>, print sizes in human readable format (e.g., 1K 234M 2G)", "help-2"],
-        ["<b>-a</b>, <b>--all</b>\n       do not ignore entries starting with .", "help-3"]
+        [u"list directory contents", "help-0"],
+        [u"<b>-l</b>     use a long listing format", "help-1"],
+        [u"<b>-h</b>, <b>--human-readable</b>\n       with <b>-l</b>, print sizes in human readable format (e.g., 1K 234M 2G)", "help-2"],
+        [u"<b>-a</b>, <b>--all</b>\n       do not ignore entries starting with .", "help-3"]
     ],
     "matches": [
-        {"commandclass": "command0", "end": 2, "helpclass": "help-0", "match": "ls", "spaces": " ", "start": 0, "suggestions": []},
-        {"commandclass": "command0", "end": 5, "helpclass": "help-1", "match": "-l", "spaces": " ", "start": 3, "suggestions": []},
-        {"commandclass": "command0", "end": 6, "helpclass": "help-2", "match": "h", "spaces": " ", "start": 5, "suggestions": []},
-        {"commandclass": "command0", "end": 12, "helpclass": "help-3", "match": "--all", "spaces": " ", "start": 7, "suggestions": []}
+        {"commandclass": "command0", "end": 2, "helpclass": u"help-0", "match": u"ls", "spaces": "", "start": 0, "suggestions": []},
+        {"commandclass": "command0", "end": 5, "helpclass": u"help-1", "match": u"-l", "spaces": " ", "start": 3, "suggestions": []},
+        {"commandclass": "command0", "end": 6, "helpclass": u"help-2", "match": u"h", "spaces": "", "start": 5, "suggestions": []},
+        {"commandclass": "command0", "end": 12, "helpclass": u"help-3", "match": u"--all", "spaces": " ", "start": 7, "suggestions": []}
     ],
     "status": "success"
 }
