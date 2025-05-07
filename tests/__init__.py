@@ -34,7 +34,7 @@ def mock_explainshell_response():
 
     responses.add(
         responses.GET,
-        "http://explainshell:5000/api/explain?cmd=ls+-lh+--all",
+        "http://explainshell:5000/explain?cmd=ls+-lh+--all",
         body=mock_html,
         status=200
     )
