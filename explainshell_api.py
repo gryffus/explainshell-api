@@ -89,4 +89,5 @@ def explain():
         output = explain_command(cmd)
         return jsonify(output)
     except Exception as e:
+        app.logger.error(f"Error while processing command '{cmd}': {str(e)}")
         return jsonify({"error": str(e)}), 500

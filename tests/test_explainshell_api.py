@@ -18,17 +18,17 @@ def test_explain_command_success():
 
 def test_api_missing_and_invalid_param(client):
     """Integration test: return 400 for missing or invalid 'cmd'."""
-    response = client.get("/explain")
+    response = client.get("/api/explain")
     assert response.status_code == 400
     assert b'"error":"Missing cmd param"' in response.data
 
-    response = client.get("/explain?cmd=invalidcommand")
+    response = client.get("/api/explain?cmd=invalidcommand")
     assert response.status_code == 400 or response.status_code == 500  # depends on implementation
     assert b'"error":"' in response.data
 
 def test_api_valid_response(client):
     """Integration test: GET /api/explain returns expected data."""
-    response = client.get("/explain?cmd=ls+-lh+--all")
+    response = client.get("/api/explain?cmd=ls+-lh+--all")
     assert response.status_code == 200
     json_data = response.get_json()
     assert json_data == expected_output
