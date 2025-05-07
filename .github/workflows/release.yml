@@ -27,3 +27,5 @@ jobs:
           name: ${{ github.ref_name }}
           body: ${{ steps.get_tag_message.outputs.TAG_MESSAGE }}
           draft: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
