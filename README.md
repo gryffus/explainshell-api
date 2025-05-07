@@ -23,10 +23,10 @@ git clone https://github.com/gryffus/explainshell-api.git
 cd explainshell-api
 ```
 
-### 2. Clone explainshell
+### 2. Initialize and update `explainshell`:
 
 ```bash
-git clone https://github.com/idank/explainshell.git
+git submodule update --init --recursive
 ```
 
 ### 3. Download the database dump into the project root
